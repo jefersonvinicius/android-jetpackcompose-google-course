@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Art Space</string>
+
+    <string name="art_year">(%s)</string>
+
+    <string name="starry_night_title">Starry Night</string>
+    <string name="starry_night_description">A Noite Estrelada é uma pintura de Vincent van Gogh de 1889. A obra retrata a vista da janela de um quarto do hospício de Saint-Rémy-de-Provence, pouco antes do nascer do sol, com a adição de um vilarejo idealizado pelo artista.</string>
+    <string name="starry_night_artist">Vincent van Gogh\'s</string>
+
+    <string name="last_supper_title">The Last Supper</string>
+    <string name="last_supper_description">Representa o episódio bíblico da Última Ceia de Jesus com os Apóstolos antes de ser preso e crucificado. É um dos bens culturais mais conhecidos e estimados do mundo.</string>
+    <string name="lat_supper_artist">Leonardo da Vinci</string>
+
 </resources>
