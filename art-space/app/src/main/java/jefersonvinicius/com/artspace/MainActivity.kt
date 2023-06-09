@@ -86,23 +86,24 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ArtSpaceApp(arts: List<Art>) {
     val pagerState = rememberPagerState()
-    HorizontalPager(pageCount = arts.size, state = pagerState) {
-        ArtCard(arts[it])
-    }
-    Row(
-        Modifier
-            .height(50.dp)
-            .fillMaxWidth()
-            .align(Alignment.BottomCenter),
-        horizontalArrangement = Arrangement.Center
-    ) {
-        repeat(arts.size) {
-            val color = if (pagerState.currentPage == it) Color.DarkGray else Color.LightGray
-            Box(modifier = Modifier
-                .padding(2.dp)
-                .clip(CircleShape)
-                .background(color)
-                .size(16.dp))
+    Column() {
+        HorizontalPager(pageCount = arts.size, state = pagerState) {
+            ArtCard(arts[it])
+        }
+        Row(
+            Modifier
+                .height(50.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            repeat(arts.size) {
+                val color = if (pagerState.currentPage == it) Color.DarkGray else Color.LightGray
+                Box(modifier = Modifier
+                    .padding(2.dp)
+                    .clip(CircleShape)
+                    .background(color)
+                    .size(16.dp))
+            }
         }
     }
 }
@@ -110,13 +111,23 @@ fun ArtSpaceApp(arts: List<Art>) {
 @Composable
 fun ArtCard(art: Art) {
     Column(modifier = Modifier.fillMaxSize()) {
-        Image(painterResource(art.image), contentDescription = art.title)
-        Text(art.title)
-        Text(art.description)
-        Row {
-            Text(art.artist)
-            Text(stringResource(R.string.art_year, art.year))
+        Box() {
+            Image(
+                painterResource(art.image),
+                contentDescription = art.title,
+                modifier = Modifier.fillMaxWidth())
+            Column(
+                modifier = Modifier.align(Alignment.BottomStart)
+            ) {
+                Text(art.title)
+                Text(art.description)
+                Row {
+                    Text(art.artist)
+                    Text(stringResource(R.string.art_year, art.year))
+                }
+            }
         }
+
     }
 }
 
